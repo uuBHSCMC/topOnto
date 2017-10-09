@@ -184,7 +184,7 @@ buildGOgraph.topology <- function(knownNodes, whichOnto = "BP") {
     if(length(adjNodes) == 0)
       cat('\n There are no adj nodes for node: ', node, '\n')
           
-    cat(pate("adjNodes:",adjNodes))  ## for debugging
+    cat(paste("adjNodes:",adjNodes))  ## for debugging
         
     for(i in 1:length(adjNodes)) {
       x <- as.character(adjNodes[i])
