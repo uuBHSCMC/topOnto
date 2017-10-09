@@ -161,6 +161,7 @@ buildGOgraph.topology <- function(knownNodes, whichOnto = "BP") {
   ##    1 for a part_of relation
   
   envAddEdge <- function(u, v, type) {
+    cat(paste("type:",type))  #### debug <<<<<<<<<<<<<<<<<<<<
     assign(v, switch(type, isa = 0, partof = 1, -1), envir = get(u, envir = edgeEnv))
   }
     
@@ -173,7 +174,7 @@ buildGOgraph.topology <- function(knownNodes, whichOnto = "BP") {
     ## we put the node in the graph and we get his parents
     setNodeInDAG(node)    # we visit the node
     assign(node, new.env(hash = TRUE, parent = emptyenv()), envir = edgeEnv) # adj list
-  
+    cat(paste("node:",node))   #### debug <<<<<<<<<<<<<<<<<<<<
     if(node == GENE.ONTO.ROOT) 
       return(2)
 
