@@ -159,8 +159,9 @@ buildGOgraph.topology <- function(knownNodes, whichOnto = "BP") {
   ## add the arc (u --> v) to edgeEnv of type :
   ##    0 for a is_a relation
   ##    1 for a part_of relation
+  ##    >>>>>>>
   envAddEdge <- function(u, v, type) {
-    assign(v, switch(type, isa = 0, partof = 1, -1), envir = get(u, envir = edgeEnv))
+    assign(v, switch(type[1], isa = 0, partof = 1, -1), envir = get(u, envir = edgeEnv))
   }
   
   ## recursivly build the induced graph starting from one node
