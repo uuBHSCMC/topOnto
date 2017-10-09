@@ -161,9 +161,9 @@ buildGOgraph.topology <- function(knownNodes, whichOnto = "BP") {
   ##    1 for a part_of relation
   ##    >>>>>>>
   envAddEdge <- function(u, v, type) {
-    assign(v, switch(type[1], isa = 0, partof = 1, -1), envir = get(u, envir = edgeEnv))
+    assign(v, switch(c(type,"")[1], isa = 0, partof = 1, -1), envir = get(u, envir = edgeEnv))
   }
-  
+    
   ## recursivly build the induced graph starting from one node
   buildInducedGraph <- function(node) {
     ## if we have visited the node, there is nothing to do
