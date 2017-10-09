@@ -97,7 +97,6 @@ setMethod("initialize", "topONTdata",
             #browser()
             ## the the GO graph is build started from the most specific terms
             cat("\nBuild DAG topology ..........")
-                    cat(names(mostSpecificGOs))  ## debug
             g <- buildGOgraph.topology(names(mostSpecificGOs), ontology)
             cat("\t(",  numNodes(g), "terms and", numEdges(g), "relations. )\n")
                 
