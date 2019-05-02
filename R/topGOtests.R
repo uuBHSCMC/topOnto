@@ -90,7 +90,24 @@ setMethod("GOKSTest", "classicScore",
             return(ks.test(x.a, seq_len(N)[-x.a], alternative = "greater")$p.value)
           })
 
+if(!isGeneric("GOKS2Test"))
+  setGeneric("GOKS2Test", function(object) standardGeneric("GOKS2Test"))
 
+setMethod("GOKS2Test", "classicScore",
+          function(object) {
+            
+            N <- numAllMembers(object)
+            na <- numMembers(object)
+            
+            ## if the group is empty ... (should not happen, but you never know!)
+            if(na == 0 || na == N)
+              return(1)
+            
+            x.a <- rankMembers(object)
+            ## x.b <- setdiff(1:N, x.a)
+            
+            return(ks.test(x.a, seq_len(N)[-x.a], alternative = "two.sided")$p.value)
+          })
 
 
 if(!isGeneric("GOtTest"))
