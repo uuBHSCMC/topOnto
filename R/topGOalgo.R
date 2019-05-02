@@ -5,16 +5,16 @@
 ## High-level function for runing the GO algorithms
 
 
-.algoComp <- rbind(c(1, 0, 1, 1, 1, 0, 1, 1, 0),
-                   c(1, 0, 1, 1, 1, 0, 1, 1, 0),
-                   c(1, 0, 0, 0, 0, 0, 0, 0, 0),
-                   c(1, 0, 1, 1, 1, 0, 1, 1, 0),
-                   c(1, 0, 1, 1, 1, 0, 1, 1, 0),
-                   c(1, 0, 0, 0, 0, 0, 0, 0, 0),
-                   c(0, 0, 0, 0, 0, 0, 0, 0, 1),
-                   c(0, 0, 0, 0, 0, 0, 0, 0, 1))
+.algoComp <- rbind(c(1, 0, 1, 1, 1, 1, 0, 1, 1, 0),
+                   c(1, 0, 1, 1,1, 1, 0, 1, 1, 0),
+                   c(1, 0, 0, 0,0, 0, 0, 0, 0, 0),
+                   c(1, 0, 1, 1,1, 1, 0, 1, 1, 0),
+                   c(1, 0, 1, 1,1, 1, 0, 1, 1, 0),
+                   c(1, 0, 0, 0,0, 0, 0, 0, 0, 0),
+                   c(0, 0, 0, 0,0, 0, 0, 0, 0, 1),
+                   c(0, 0, 0, 0,0, 0, 0, 0, 0, 1))
 rownames(.algoComp) <- c("classic", "elim", "weight", "weight01", "lea", "parentchild",'classicgsea','elimgsea')
-colnames(.algoComp) <- c("fisher", "z", "ks", "t", "globaltest", "category", "sum", "ks.ties","ks.csw")
+colnames(.algoComp) <- c("fisher", "z", "ks", "ks2","t", "globaltest", "category", "sum", "ks.ties","ks.csw")
 
 .testNames <- c("GOFisherTest" , "GOKSTest","GOKS2Test", "GOtTest", "GOglobalTest", "GOSumTest", "GOKSTiesTest","GOKSCSWTest")
 names(.testNames) <- c("fisher", "ks", "ks2","t", "globaltest", "sum", "ks.ties","ks.csw")
