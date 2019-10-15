@@ -1,7 +1,7 @@
 #' @name Gene set tests statistics
 #' @rdname GOTests
 #' @title Gene set tests statistics
-#' @aliases GOFisherTest GOKSTest GOtTest GOglobalTest GOSumTest GOKSTiesTest permSumStats permSumStats.all
+#' @aliases GOFisherTest GOKSTest GOKS2Test GOtTest GOglobalTest GOSumTest GOKSTiesTest permSumStats permSumStats.all
 #' @description Methods which implement and run a group test statistic for
 #'   a class inheriting from \code{groupStats} class. See Details section
 #'   for a description of each method.
@@ -9,6 +9,7 @@
 #' @usage
 #' GOFisherTest(object)
 #' GOKSTest(object)
+#' GOKS2Test(object)
 #' GOtTest(object)
 #' GOglobalTest(object)
 #' GOSumTest(object)
