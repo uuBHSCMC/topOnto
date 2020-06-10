@@ -5,7 +5,7 @@
 ## High-level function for runing the GO algorithms
 
 
-.algoComp <- rbind(c(1, 0, 1, 1, 1, 1, 0, 1, 1, 0),
+.algoComp <- rbind(c(1, 0, 1, 1, 1, 1, 0, 1, 1, 1),
                    c(1, 0, 1, 1,1, 1, 0, 1, 1, 0),
                    c(1, 0, 0, 0,0, 0, 0, 0, 0, 0),
                    c(1, 0, 1, 1,1, 1, 0, 1, 1, 0),
