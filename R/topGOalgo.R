@@ -14,10 +14,10 @@
                    c(0, 0, 0, 0,0, 0, 0, 0, 0, 1),
                    c(0, 0, 0, 0,0, 0, 0, 0, 0, 1))
 rownames(.algoComp) <- c("classic", "elim", "weight", "weight01", "lea", "parentchild",'classicgsea','elimgsea')
-colnames(.algoComp) <- c("fisher", "z", "ks", "ks2","t", "globaltest", "category", "sum", "ks.ties","ks.csw")
+colnames(.algoComp) <- c("fisher", "z", "ks", "ks2","t", "globaltest", "category", "sum", "ks.score","ks.csw")
 
 .testNames <- c("GOFisherTest" , "GOKSTest","GOKS2Test", "GOtTest", "GOglobalTest", "GOSumTest", "GOKSTiesTest","GOKSCSWTest")
-names(.testNames) <- c("fisher", "ks", "ks2","t", "globaltest", "sum", "ks.ties","ks.csw")
+names(.testNames) <- c("fisher", "ks", "ks2","t", "globaltest", "sum", "ks.score","ks.csw")
 
 .algoClass <- c("classic", "elim", "weight", "weight01", "lea", "parentchild","classicgsea","elimgsea")
 names(.algoClass) <- c("classic", "elim", "weight", "weight01", "lea", "parentchild","classicgsea","elimgsea")
