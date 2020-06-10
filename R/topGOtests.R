@@ -290,11 +290,29 @@ setMethod("GOKSTiesTest", "classicScore",
             return(get(FUN)(resP))
           })
 
-
-
 if(!isGeneric("GOKSCSWTest"))
   setGeneric("GOKSCSWTest", function(object) standardGeneric("GOKSCSWTest"))
 
+## >> new
+setMethod("GOKSCSWTest", "classicScore",
+          function(object) {
+            
+            N <- numAllMembers(object)
+            na <- numMembers(object)
+            
+            ## if the group is empty ... (should not happen, but you never know!)
+            if(na == 0 || na == N)
+              return(1)
+            
+            x.a <- rankMembers(object)
+            ## x.b <- setdiff(1:N, x.a)
+            
+                      
+            return(ks.test.2(x.a, seq_len(N)[-x.a])$ES)
+            
+          })
+## >> // new
+             
 setMethod("GOKSCSWTest", "classicGsea",
           function(object) {
             #cat('testing ',object@testStatPar$gsname,"...\n")
