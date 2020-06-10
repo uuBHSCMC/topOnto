@@ -257,37 +257,21 @@ if(!isGeneric("GOKSTiesTest"))
   setGeneric("GOKSTiesTest", function(object) standardGeneric("GOKSTiesTest"))
 
 setMethod("GOKSTiesTest", "classicScore",
-          function(object) {
-
+        function(object) {
+            ### repurposed for KS score
             N <- numAllMembers(object)
             na <- numMembers(object)
-
+            
             ## if the group is empty ... (should not happen, but you never know!)
             if(na == 0 || na == N)
               return(1)
-
-            ## get the test parameters ... if existent
-            numPerm <- testStatPar(object)[["numPerm"]]
-            FUN <- testStatPar(object)[["FUN"]]
-            if(is.null(numPerm))
-              numPerm <- 50L
-            if(is.null(FUN))
-              FUN <- "max"
             
-            ## get all the scores and take care of their order 
-            a.s <- allScore(object)
-            ## get the members index 
-            mem.index <- rankMembers(object)
-            seqN <- seq_len(N)
-            resP <- numeric(numPerm)
-            ## for each permutation we get random ranks for the ties
-            for(i in 1:numPerm) {
-              x.a <- sort.list(order(a.s, sample(N), decreasing = scoreOrder(object)))[mem.index]
-              resP[i] <- ks.test(x.a, seqN[-x.a], alternative = "greater")$p.value
-            }
+            x.a <- rankMembers(object)
+            ## x.b <- setdiff(1:N, x.a)
             
-            ## aggregate the resulting p-values and return
-            return(get(FUN)(resP))
+                      
+            return(ks.test.2(x.a, seq_len(N)[-x.a])$ES)
+            
           })
 
 if(!isGeneric("GOKSCSWTest"))
