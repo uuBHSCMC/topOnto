@@ -106,10 +106,10 @@ setMethod("GOKS2Test", "classicScore",
             
             x.a <- rankMembers(object)
             ## x.b <- setdiff(1:N, x.a)
+            goks2 <- ks.test.2(x.a, seq_len(N)[-x.a])
+#            sign_i <- sign(goks2$ES)
             
-            sign_i <- sign(ks.test.2(x.a, seq_len(N)[-x.a])$ES)
-            
-            return(sign_i * ks.test.2(x.a, seq_len(N)[-x.a])$p.value)
+            return(sign(goks2$ES) * goks2$p.value)
             
           })
 
